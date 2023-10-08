@@ -1,52 +1,58 @@
 'use strict'
 
-const flights = ['Russia', 'USA', 'Canada', 'London', 'London'];
-console.log('Creating array "fligts":', flights);
+const weatherMap = new Map();
+console.log('Creating new Map object:', weatherMap);
 
 console.log('\n');
 
-const setFlights = new Set(flights);
-console.log('Creating SET from array of flights:', setFlights);
+console.log('Fill Map object:');
+weatherMap
+    .set('Moscow', '10')
+    .set('London', '7')
+    .set('Tomsk', '16');
+console.log(weatherMap);
 
 console.log('\n');
 
-console.log('Get set length by using SIZE property:', setFlights.size);
+console.log('Getting object with get() method:');
+console.log('Tomsk', weatherMap.get('Tomsk'));
+console.log('Novosibirsk', weatherMap.get('Novosibirsk'));
 
 console.log('\n');
 
-console.log('Check if set contains any object by "has()" method:');
-console.log('Russia:', setFlights.has('Russia'));
-console.log('Kazakhstan:', setFlights.has('Kazakhstan'));
+console.log('Check if key exists:');
+console.log('Moscow', weatherMap.has('Moscow'));
+console.log('Almaty', weatherMap.has('Almaty'));
 
 console.log('\n');
 
-console.log('Add new object with "add()" method:');
-console.log('Russia:', setFlights.add('Russia'));
-console.log('Australia:', setFlights.add('Australia'));
+console.log('Delete object "Moscow"', weatherMap.delete('Moscow'), weatherMap);
+console.log('Delete object "Almaty"', weatherMap.delete('Almaty'), weatherMap);
 
 console.log('\n');
 
-console.log('Remove object with "delete()" method:');
-console.log('Canada:', setFlights.delete('Canada'));
-console.log('Argentina:', setFlights.delete('Argentina'));
-console.log(setFlights);
+console.log('Clearing Map:');
+weatherMap.clear();
+console.log(weatherMap);
 
 console.log('\n');
 
-console.log('Iterating elements:');
-for (let flight of setFlights) {
-    console.log('Element:', flight);
-}
+const arr = [1, 2, 3];
+const obj = { a: 1 };
+console.log('Fill Map with different keys:');
+weatherMap
+    .set(true, 1)
+    .set(1, 'one')
+    .set(false, 'no')
+    .set(arr, 'array')
+    .set(obj, { b: 1 })
+console.log(weatherMap);
 
 console.log('\n');
 
-console.log('Using spread syntax to convert SET to ARRAY:', [...setFlights]);
+console.log('Get value with key of array type:', weatherMap.get(arr));
+console.log('Get value with key of object type:', weatherMap.get(obj));
 
 console.log('\n');
 
-console.log('Creating SET from string object:');
-console.log('String "abcdeeedddaaa":', new Set('abcdeeedddaaa'));
-
-
-console.log('End of lesson ╰(*°▽°*)╯')
-
+console.log('Get size of Map with size property:', weatherMap.size);
