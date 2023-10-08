@@ -1,16 +1,20 @@
 'use strict'
 
 const weatherMap = new Map([
-    ['London', '1'],
-    ['Almaty', '2'],
-    ['Tomsk', '3']
+    ['London', 10],
+    ['Almaty', 7],
+    ['Tomsk', 16]
 ]);
-console.log('New map from array of arrays:', weatherMap);
+console.log('Creating new Map:', weatherMap);
 
-const weatherObj = {
-    London: 7,
-    Moscow: 10,
-    Tomsk: 15
-};
-const weatherMap2 = new Map(Object.entries(weatherObj));
-console.log('New map from object:', weatherMap2);
+console.log('Iterating weatherMap:');
+for (const [key, value] of weatherMap) {
+    console.log('Key:', key, 'Value:', value);
+}
+
+console.log('Getting keys of Map:', weatherMap.keys());
+console.log('Getting values of Map:', weatherMap.values());
+
+console.log('Getting array of arrays of Map with spread syntax:', [...weatherMap]);
+console.log('Getting array of keys of Map with spread syntax:', [...weatherMap.keys()]);
+console.log('Getting array of values of Map with spread syntax', [...weatherMap.values()]);
